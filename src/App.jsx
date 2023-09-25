@@ -15,6 +15,7 @@ import CreateQuestion from "./components/Questions/CreateQuestion/CreateQuestion
 import Header from "./components/Header/Header";
 import PrivateZone from "./guards/PrivateZone";
 import Home from "./components/Home/Home";
+import CardSlider from "./components/Tools/CardSlider/CardSlider";
 
 function App() {
   return (
@@ -22,9 +23,10 @@ function App() {
       <BrowserRouter>
       <Header/>
         <Routes>
+        <Route path="/card" element={<CardSlider />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
-          //<Route path="/profile" element={<Profile />} />
+          {/* <Route path="/profile" element={<Profile />} /> */}
           <Route path="/createevent" element={<CreateEvent />} />
           <Route path="/getevents" element={<GetEvents />} />
           <Route path="/editevent/:_id" element={<EditEvent />} />
