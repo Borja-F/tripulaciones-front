@@ -153,6 +153,11 @@ const Header = () => {
                           Add Post{" "}
                         </Link>
                       </span> */}
+                      <span className="line" />
+                      <Link to={`/chat`} onClick={onClose}>
+                          Chat
+                        </Link>
+                        <span className="line" />
                       <span onClick={onLogout}>Logout</span>
                       <span className="line" />
                     </>
