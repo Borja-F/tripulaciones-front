@@ -58,6 +58,12 @@ const like = async (_id) => {
 
   return res.data;
 };
+
+const getEventsByName = async (eventTitle) => {
+  const res = await axios.get(API_URL + "/events/title/" + eventTitle);
+  return res.data;
+};
+
 const dislike = async (_id) => {
   const token = JSON.parse(localStorage.getItem("token"));
   const res = await axios.put(
@@ -79,6 +85,7 @@ const eventsService = {
   getById,
   like,
   dislike,
+  getEventsByName
 };
 
 export default eventsService;

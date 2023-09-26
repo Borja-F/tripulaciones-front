@@ -65,6 +65,15 @@ export const dislike = createAsyncThunk("events/dislike", async (_id) => {
     console.error(error);
   }
 });
+
+export const getEventsByName = createAsyncThunk("events/getEventsByName", async (eventName) => {
+  try {
+    return await eventsService.getEventsByName(eventName);
+  } catch (error) {
+    console.error(error);
+  }
+}
+);
 export const eventsSlice = createSlice({
   name: "events",
   initialState,
@@ -76,6 +85,9 @@ export const eventsSlice = createSlice({
       })
       .addCase(editEvent.fulfilled, (state, action) => {
         state.event = action.payload;
+      })
+      .addCase(getEventsByName.fulfilled, (state, action) => {
+        state.events = action.payload;
       })
       .addCase(getAll.fulfilled, (state, action) => {
         state.events = action.payload;
